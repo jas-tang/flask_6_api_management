@@ -2,8 +2,11 @@ from flask import escape
 import functions_framework
 import json
 import pandas as pd 
+import azure.functions as func
 
-@functions_framework.http
+app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
+
+@app.route(route="http_trigger")
 def hello_http(request):
 
     # price, this will be the base price
@@ -18,7 +21,7 @@ def hello_http(request):
         base_price = 0
 
 
-    # Step 1 convert everything to numbers 
+    # Step 1 convert everything to float 
     price_num = float(base_price)
 
 
@@ -42,4 +45,7 @@ def hello_http(request):
 
     return output
 
-# functions-framework-python --target hello_http --debug to run app
+# to run app
+# functions-framework-python --target hello_http --debug
+
+#az functionapp create --resource-group Jason504 --consumption-plan-location eastus --runtime python --runtime-version 3.9 --functions-version 4 --name costpercentapp --storage-account jason504storage
