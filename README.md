@@ -62,7 +62,7 @@ Run this in the terminal to run the application.
 functions-framework-python --target hello_http --debug
 ```
 
-![](https://github.com/jas-tang/flask_6_api_management/blob/main/images/flasgger.JPG)
+![](https://github.com/jas-tang/flask_6_api_management/blob/main/images/flask1.JPG)
 
 This error occurred when I tried to input a decimal in the requested argument. As you know, money comes with cents, so that is why I changed the code to accomodate floats.
 
